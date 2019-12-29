@@ -60,7 +60,3 @@ func (t *TokenService) Encode(user *pb.User) (string, error) {
 	// Sign token and return
 	return token.SignedString(key)
 }
-
-func main() {
-
-}
