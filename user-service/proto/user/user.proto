@@ -6,6 +6,14 @@ service UserService {
     rpc Create(User) returns (Response) {}
     rpc Get(User) returns (Response) {}
     rpc GetAll(Request) returns (Response) {}
+    rpc Auth(User) returns (Token) {}
+    rpc ValidateToken(Token) returns (Token) {}
+}
+
+message Token {
+    string token = 1;
+    bool valid = 2;
+    repeated Error errors = 3;
 }
 
 message User {
@@ -18,10 +26,9 @@ message User {
     string card_brand = 7;
     string card_last_four = 8;
     string trial_ends_at = 9;
-    string deleted_at = 10;
-    string remember_token = 11;
-    string created_at = 12;
-    string updated_at = 13;
+    string remember_token = 10;
+    string created_at = 11;
+    string updated_at = 12;
 }
 
 message Request {}
